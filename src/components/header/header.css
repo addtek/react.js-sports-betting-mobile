@@ -38,13 +38,13 @@
 .header-container .header-body .header-inner .header-row.main{
    height: 65px;
    /* background-color:#03767a; */
-   background-color:crimson;
+   background-color: #04343c;
 }
 
 .header-container .header-body .header-inner .header-row.secondary{
    height: 50px;
    /* background-color: #025f62; */
-   background-color: crimson;
+   background-color: #04343c;
    border-bottom: 1px solid #08b981;
    position: relative;
 }
@@ -137,7 +137,7 @@
    display: flex;
 }
 .header-container .header-body .header-inner .header-row .header-col .nav-controls>div.bottom .clear{
-   background-color: crimson;
+   background-color: #04343c;
    border-radius:  0 4px 4px 0;
    color:#fff;
 }
@@ -201,7 +201,7 @@
    margin: 0 0px 0px 10px;
 }
 .header-container .header-body .header-inner .header-row .header-col .nav-controls .register button{
-   background-color: #ffa200;
+   background-color:#f54b2c;
 }
 .header-container .header-body .header-inner .header-row .header-col .nav-controls .lang{
    line-height: 60px;
@@ -344,9 +344,10 @@
 }
 .header-container .header-body .header-inner .header-row .header-col .nav-links .link a.active{
    background-color:#fff;
+   color: #f54b2c;
 }
 .header-container .header-body .header-inner .header-row .header-col .nav-links .link:hover a, .header-container .header-body .header-inner .header-row .header-col .nav-links .link:hover a span{
-   color: crimson !important;
+   color: #f54b2c !important;
 }
 .header-container.show-fix{
    position:sticky;

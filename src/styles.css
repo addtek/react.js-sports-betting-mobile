@@ -64,11 +64,11 @@ a {
 }
 
 .sportsbook-container.light-theme .sportsbook-search {
-  background-color: crimson;
+  background-color: #04343c;
 }
 
 .light-theme .sports-container .sport-header, .light-theme .multiview-window .sport-header {
-  background-color: crimson;
+  background-color: #04343c;
   color: #fff;
 }
 
@@ -2784,7 +2784,7 @@ body.modal-open {
   flex-direction: row;
   justify-content: flex-end;
   width: 100%;
-  background-color:crimson ;
+  background-color: #04343c ;
   padding: 0 10px;
 
 }
@@ -2802,7 +2802,7 @@ body.modal-open {
   height: 45px;
   line-height: 45px;
   padding: 10px;
-  background-color: crimson;
+  background-color: #04343c;
   color: #fff;
 }
 
@@ -2952,7 +2952,7 @@ body.modal-open {
   height: 40px;
   line-height: 40px;
   text-align: center;
-  background-color: crimson;
+  background-color: #04343c;
   color: #fff;
   width: 100%;
   text-transform: uppercase;
@@ -3852,7 +3852,7 @@ html .betslip-header-settings {
 
 html .betslip-header {
   color: #fff;
-  background: crimson;
+  background-color: #04343c;
 }
 
 [data-ember-action] {
@@ -4130,7 +4130,7 @@ input[type=checkbox], input[type=radio] {
   color: #fff;
   font-size: 13px;
   font-weight: 500;
-  background-color: crimson;
+  background-color: #04343c;
   position: sticky;
   top: -3px;
   z-index: 10;
@@ -8104,7 +8104,7 @@ html .betslip-floating-mode-container.betslip-icon .betslip-opener-container .be
 }
 
 html .betslip-floating-mode-container.betslip-icon .betslip-opener-container {
-  background: crimson;
+  background-color: #04343c;
   color: #fff;
 }
 
@@ -9158,7 +9158,7 @@ div .single-event {
 /* width */
 
 html .sportsbook-search {
-  background-color: crimson;
+  background-color: #04343c;
 }
 
 .sportsbook-search, .sportsbook-input-value {
@@ -9632,7 +9632,7 @@ html .sportsbook-search .search-results-match .search-results-match-details {
 }
 
 .betslip-header .sportsbook-search .sportsbook-search-input .clear {
-  background-color: crimson;
+  background-color: #04343c;
   border-radius: 0 4px 4px 0;
   color: #fff;
 }
@@ -9732,7 +9732,7 @@ html .sportsbook-search .search, html .sportsbook-search .clear {
   -moz-justify-content: space-between;
   justify-content: space-between;
   color: #fff;
-  background: crimson;
+  background-color: #04343c;
   border-radius: 4px 4px 0 0;
 }
 
@@ -9791,7 +9791,7 @@ html .sportsbook-search .search, html .sportsbook-search .clear {
 }
 
 .promotion .events-container .sport-item:not(.prematch) .sport:not(.active) {
-  background-color: crimson;
+  background-color: #04343c;
 }
 
 .promotion .events-container .sport-item:not(.prematch) .sport {
@@ -9857,10 +9857,10 @@ html .sportsbook-search .search, html .sportsbook-search .clear {
 }
 
 html .sports-list-container .mobile{
-  background: crimson;
+  background-color: #04343c;
 }
 .promotion .sports-list {
-  background: crimson;
+  background-color: #04343c;
 }
 
 .sports-list-container .sports-list .sport-item:not(:last-child),.promotion .events-container .sport-item.prematch:not(:last-child) {
@@ -10425,7 +10425,7 @@ html .markets-count {
   line-height: 37px;
   padding-left: 10px;
   color: #fff;
-  background-color: crimson;
+  background-color: #04343c;
 }
 .sportsbook-content .market .change{
   flex:1 1 10%;
@@ -11001,7 +11001,7 @@ content: url(images/football-jersey.svg)
 .sportsbook-content>.market>.market-container .live-game-teams-stats .stats-header {
   /* height: 24px; */
   line-height: 30px;
-  background-color: crimson;
+  background-color: #04343c;
   color: #fff;
   /* border-radius: 8px 8px 0 0; */
 }
@@ -11294,7 +11294,7 @@ content: url(images/football-jersey.svg)
   -webkit-justify-content: space-between;
   -moz-justify-content: space-between;
   justify-content: space-between;
-  background-color: crimson;
+  background-color: #04343c;
   border-bottom: 1px solid crimson;
 }
 
@@ -11641,7 +11641,7 @@ label.sb-on-off-button input[type=checkbox]+span::before {
   vertical-align: middle;
   border: 0;
   color: #fff !important;
-  background: crimson;
+  background-color: #04343c;
   height: 28px;
   padding: 0;
   position: relative;
@@ -12744,7 +12744,7 @@ html .sb-spinner .sb-preloader {
 
 .game-preview-container .game-preview-header {
   color: #fff;
-  background-color: crimson;
+  background-color: #04343c;
   border-color: crimson;
   margin-bottom: 2px;
 }
@@ -12809,7 +12809,7 @@ html .sb-spinner .sb-preloader {
 }
 
 .game-preview-container .game-preview-header>div:first-child>i {
-  background-color: crimson;
+  background-color: #04343c;
 }
 
 .game-preview-container .game-preview-header .switch-audio i {
@@ -13021,7 +13021,7 @@ html .sb-spinner .sb-preloader {
   -moz-justify-content: center;
   justify-content: center;
   color: #fff;
-  background: crimson;
+  background-color: #04343c;
 }
 
 .gameinfo-container .team-names .team-name .info {
@@ -14854,7 +14854,7 @@ html .score-info-container .game-info-container {
 }
 
 .gameinfo-container .game-statistics .st-circle::after {
-  background: crimson;
+  background-color: #04343c;
 }
 
 html .soccer.fill .sport-header, html .soccer.set-sports-color .sport-header, html .soccer.sports .sport-header, html .soccer.fill.sport-header, html .soccer.set-sports-color.sport-header, html .soccer.sports.sport-header {
@@ -18888,7 +18888,7 @@ html .custom-select:focus .custom-select-default .icon-icon-arrow-down, html .cu
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  background-color: crimson;
+  background-color: #04343c;
   margin-top: 8px;
   border-radius: 20px;
   color: #fff;
@@ -19145,7 +19145,7 @@ html .custom-select:focus .custom-select-default .icon-icon-arrow-down, html .cu
   align-items: center;
   -moz-justify-content: space-between;
   justify-content: space-between;
-  background-color: crimson;
+  background-color: #04343c;
   color: #fff;
   border-radius: 4px 4px 0 0;
 }
@@ -19475,7 +19475,7 @@ a.block-link__overlay-link {
 .sb-modal-content .user-balance-section {
   height: 130px;
   /* border-radius: 5px; */
-  background-color: crimson;
+  background-color: #04343c;
 }
 .sb-modal-content .user-balance-section .close{
   font-size: 25px;
@@ -19515,7 +19515,7 @@ a.block-link__overlay-link {
 
 .sb-modal-content .user-balance-section .money {
   height: 50%;
-  /* background-color: crimson; */
+  /* background-color: #04343c; */
   /* border-radius: 0 0 6px 6px; */
   display: flex;
   /* padding: 10px 10px 0; */
@@ -19542,7 +19542,7 @@ a.block-link__overlay-link {
 
 .menu-link-item {
   height: 40px;
-  background-color: crimson;
+  background-color: #04343c;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19583,7 +19583,7 @@ a.block-link__overlay-link {
 .seperator {
   width: 100%;
   height: 1px;
-  background-color: crimson;
+  background-color: #04343c;
 }
 
 .toast-contanier {
@@ -19791,7 +19791,7 @@ a.block-link__overlay-link {
 }
 
 .reminder legend {
-  background-color: crimson;
+  background-color: #04343c;
   height: 30px;
   border-radius: 5px;
   display: flex;

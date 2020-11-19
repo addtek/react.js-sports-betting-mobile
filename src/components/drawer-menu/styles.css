@@ -5,7 +5,7 @@
     text-align: center;
     font-weight: 400;
     transition: height .3s ease;
-    background: crimson;
+    background-color: #04343c;
     overflow-y: auto;
     align-self: flex-end;
 }
