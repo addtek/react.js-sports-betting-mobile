@@ -449,7 +449,7 @@ export default class RegisterFrom extends React.Component {
                                                 <p className="recaptcha-version-3" style={{ fontSize: '20px' }}>
                                                     Thank You for joining Macau Gambling Market, Your Account was created successfully!
                                         </p>
-                                                <span>Pleae check your Email and verify your account.</span>
+                                                {/* <span>Pleae check your Email and verify your account.</span> */}
                                                 <span style={{ fontSize: '20px' }}>Bet more, Win Big!!!</span>
                                             </div>
                                             :
