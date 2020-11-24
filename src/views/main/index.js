@@ -42,6 +42,8 @@ import PageNotFound from '../404';
 import DrawerMenu from '../../containers/drawer';
 import ScrollToTop from '../../components/scrolltotop';
 import SkypeBetting from '../skypebetting';
+import { PaymentSuccess } from '../payment/success';
+import { PaymentFailed } from '../payment/failed';
 const $api = API.getInstance()
 export default class Main extends React.PureComponent {
   constructor(props) {
@@ -1988,6 +1990,12 @@ autoGetBalance(){
                 />
                 <Route path="/skypebetting"
                   render={(props)=><SkypeBetting {...props}/>}
+                />
+                <Route path="/payment/success"
+                  render={(props)=><PaymentSuccess {...props}/>}
+                />
+                <Route path="/payment/cancel"
+                  render={(props)=><PaymentFailed {...props}/>}
                 />
                 <Route path="*"
                   render={()=><PageNotFound/>}
