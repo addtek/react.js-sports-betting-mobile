@@ -58,10 +58,10 @@ export default class RegisterFrom extends React.Component {
         this.countdownTimer = null
 
         this.currencies = [
-            { value: "GBP", name: "UK Sterling(GBP)" },
-            { value: "EUR", name: "Euro(EUR)" },
+            // { value: "GBP", name: "UK Sterling(GBP)" },
+            // { value: "EUR", name: "Euro(EUR)" },
             { value: "CFA", name: "West African CFA franc(CFA)" },
-            { value: "USD", name: "US Dollar(USD)" }
+            // { value: "USD", name: "US Dollar(USD)" }
         ]
         this.security_questions = [
             { value: "FFN", name: "Father's first Name" },
