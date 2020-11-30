@@ -319,7 +319,7 @@ export default class Bonuses extends React.Component {
                                     <div>Bonus Status</div>
                                   </div>
                                   <div>
-                                  <div className={`type`}><span style={{ paddingLeft: '5px' }}>{history.RealAmount} {config.currency}</span></div>
+                                  <div className={`type`}><span style={{ paddingLeft: '5px' }}>{history.RealAmount} {this.props.profile.currency}</span></div>
                                   <div className="date">{moment(history.ExpirationDate).format('ddd, D MMM YYYY')}</div>
                                   <div className={`state`}><span style={{ paddingLeft: '5px' }}>{history.Status}</span></div>
                                   </div>

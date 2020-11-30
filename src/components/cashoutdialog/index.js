@@ -238,7 +238,7 @@ export default class CashoutDialog extends React.Component {
   
                               </label>
                               {dialogSettings.cashoutDialogType === "manual" ?
-                                <label style={{ paddingBottom: '5px', paddingLeft: '20px', fontWeight: '700', fontSize: '15px' }}>{dialogSettings.priceChanged ? dialogSettings.new_price : cashable_bet.cash_out}  {config.currency}</label>
+                                <label style={{ paddingBottom: '5px', paddingLeft: '20px', fontWeight: '700', fontSize: '15px' }}>{dialogSettings.priceChanged ? dialogSettings.new_price : cashable_bet.cash_out}  {this.props.profile.currency}</label>
                                 : null}
                             </div>
                             <div className="group">
@@ -286,7 +286,7 @@ export default class CashoutDialog extends React.Component {
                           :
                           <React.Fragment>
                             <h4 trans="">Rule active</h4>
-                            <p>If the value reaches <span>{cashOutRule.valueReaches}</span> <b>{config.currency}</b></p>
+                            <p>If the value reaches <span>{cashOutRule.valueReaches}</span> <b>{this.props.profile.currency}</b></p>
                             <p>Cash-out </p>
                           </React.Fragment>
                         }

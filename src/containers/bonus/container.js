@@ -5,7 +5,7 @@ import component from '../../components/bonus'
 const mapStateToProps = (state, ownProps) => {
     return {
         config: state.sportsbook.config,
-        // profile:state.profile,
+        profile:state.profile,
         appState:state.appState
     }
 }

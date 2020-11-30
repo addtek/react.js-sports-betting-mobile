@@ -116,7 +116,6 @@ export default class Transactions extends React.Component {
       this.getBetHistory(p,more);
     }
     loadMore(){
-      const {currentPage}=this.state
       this.searchTransactionHistory(true)
     }
     setBetID(e) {
@@ -232,7 +231,7 @@ export default class Transactions extends React.Component {
                                 <div>Status</div>
                               </div>
                               <div>
-                                <div className="stake">{history.amount}  {config.currency}</div>
+                                <div className="stake">{history.amount}  {this.props.profile.currency}</div>
                                 <div className={`type cms-jcon-${history.type}`}><span style={{ paddingLeft: '5px' }}>{history.type}</span></div>
                                 <div className={`state`}><span style={{ paddingLeft: '5px' }}>{history.status}</span></div>
                               </div>

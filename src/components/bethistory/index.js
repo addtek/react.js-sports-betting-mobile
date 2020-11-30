@@ -288,6 +288,7 @@ export default class BetHistory extends React.Component {
                 <CashoutDialog onCancelRule={this.cancelAutoCashOutRule}
                   onCashout={this.doCashout}
                   cashable_bet={cashable_bet}
+                  profile={this.props.profile}
                   onGetCashoutRule={this.getBetAutoCashout}
                   onAttemptCashout={this.attemptCashout.bind(this)}
                   onSetAutoCashout={this.createAutoCashOutRule}
