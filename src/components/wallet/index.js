@@ -2,7 +2,7 @@ import React from 'react'
 import * as $ from 'jquery'
 import 'jquery-ui/ui/widgets/datepicker'
 import moment from 'moment-timezone'
-import { onFormInputFocus, onFormInputFocusLost, makeToast, getCookie ,clearToast} from '../../common'
+import { onFormInputFocus, onFormInputFocusLost, makeToast, getCookie} from '../../common'
 import { calcMD5 } from '../../utils/jsmd5'
 import API from '../../services/api'
 import Transactions from '../../containers/transactions'
@@ -108,14 +108,14 @@ export default class Wallet extends React.Component {
           } = this.state,
           $time = moment().format("YYYY-MM-DD H:mm:ss"),
           $hash = calcMD5(
-            `AuthToken${AuthToken}uid${uid}email${email}type${paymentOptions[openedItem].id}amount${amount}${
+            `AuthToken${AuthToken}uid${uid}email${email}type${openedItem}amount${amount}${
               telcoType === 2 ? `voucher${voucher}` : ""
             }time${$time}${this.props.appState.$publicKey}`
           );
         let p = {
-          pay_type: paymentOptions[openedItem].id,
+          pay_type: openedItem,
           amount: amount,
-          type: paymentOptions[openedItem].id,
+          type: openedItem,
           email: email,
           uid: uid,
           external_acc: externalAcc,
@@ -150,16 +150,16 @@ export default class Wallet extends React.Component {
           } = this.state,
           $time = moment().format("YYYY-MM-DD H:mm:ss"),
           $hash = calcMD5(
-            `AuthToken${AuthToken}uid${uid}email${email}withdrawaltype${withdrawalOptions[openedItem].id}amount${amount}password${password}time${$time}${this.props.appState.$publicKey}`
+            `AuthToken${AuthToken}uid${uid}email${email}withdrawaltype${openedItem}amount${amount}password${password}time${$time}${this.props.appState.$publicKey}`
           );
         let p = {
-          withdrawaltype: withdrawalOptions[openedItem].id,
+          withdrawaltype: openedItem,
           password: password,
           amount: amount,
           email: email,
           uid: uid,
-          pay_type: withdrawalOptions[openedItem].id,
-          type: withdrawalOptions[openedItem].id,
+          pay_type: openedItem,
+          type: openedItem,
           external_acc: externalAcc,
           type_alias: withdrawalOptions[openedItem].alias,
           AuthToken: AuthToken,
@@ -252,14 +252,14 @@ export default class Wallet extends React.Component {
                                       <span className="btn-preloader sb-preloader"></span>
                                     </div>
                         :
-                        paymentOptions.map((paymentmethod,index) => (
+                        paymentOptions.map((paymentmethod) => (
                           <>
                 <div className="deposit" style={{borderTopWidth:"5px",borderTopColor:paymentmethod.themecolor,transition:"height .5s linear"}}>
                 <div className="">
                   <div className="deposit-type ">
-                    <div className="header" onClick={()=>this.setState((prev)=>({openedItem:prev.openedItem===index?null:index}))}>
+                    <div className="header" onClick={()=>this.setState((prev)=>({openedItem:prev.openedItem==paymentmethod.id?null:paymentmethod.id}))}>
                       <div className="type-logo col-sm-2">
-                        <img src={paymentmethod.icon} />
+                        <img alt ="" src={paymentmethod.icon} />
                       </div>
                       <div className="type-logo col-sm-3">
 
@@ -271,7 +271,7 @@ export default class Wallet extends React.Component {
                     </div>
                     <div className="deposit-type-content">
                       <div className="instruction-form col-sm-12">
-                        <div className="conditions"  onClick={()=>this.setState((prev)=>({openedItem:prev.openedItem===index?null:index}))}>
+                        <div className="conditions"  onClick={()=>this.setState((prev)=>({openedItem:prev.openedItem==paymentmethod.id?null:paymentmethod.id}))}>
                           <div className="cons">
                             <div className="icon-sb-success"></div>
                             <div>
@@ -311,7 +311,7 @@ export default class Wallet extends React.Component {
                             </div>
                           )}
                         </div>
-                        {openedItem === index&&
+                        {openedItem === paymentmethod.id&&
                         <>
                         <div className="deposit-summary"style={{backgroundColor:paymentmethod.themecolor}}>
                           <div>
@@ -348,7 +348,7 @@ export default class Wallet extends React.Component {
                             <div>
                               <span>
                                 Total{" "}
-                                {paymentmethod.alias.toLowerCase() === "btc"
+                                {paymentmethod.alias.toLowerCase() == "btc"
                                   ? "BTC to be sent"
                                   : "Amount"}{" "}
                               </span>
@@ -375,7 +375,7 @@ export default class Wallet extends React.Component {
                                   <div className="sb-login-form-wrapper">
                                     <div
                                       className={`form ${
-                                        openedItem !== index
+                                        openedItem !== paymentmethod.id
                                           ? "animated fadeOut"
                                           : "fadeIn animated"
                                       }`}
@@ -510,7 +510,7 @@ export default class Wallet extends React.Component {
             <div key={paymentmethod.alias+"W"} className="deposit" style={{borderTopWidth:"5px",borderTopColor:paymentmethod.themecolor,transition:"height .5s linear"}}>
               <div className="">
                 <div className="deposit-type ">
-                  <div className="header" onClick={()=>this.setState((prev)=>({openedItem:prev.openedItem === key?null: key}))}>
+                  <div className="header" onClick={()=>this.setState((prev)=>({openedItem:prev.openedItem==paymentmethod.id?null:paymentmethod.id}))}>
                     <div className="type-logo col-sm-2">
                       <img src={paymentmethod.icon} />
                     </div>
@@ -524,7 +524,7 @@ export default class Wallet extends React.Component {
                   </div>
                   <div className="deposit-type-content">
                     <div className="instruction-form col-sm-12">
-                      <div className="conditions"  onClick={()=>this.setState((prev)=>({openedItem:prev.openedItem=== key?null: key}))}>
+                      <div className="conditions"  onClick={()=>this.setState((prev)=>({openedItem:prev.openedItem==paymentmethod.id?null:paymentmethod.id}))}>
                         <div className="cons">
                           <div className="icon-sb-success"></div>
                           <div>
@@ -564,13 +564,13 @@ export default class Wallet extends React.Component {
                           </div>
                         )} */}
                       </div>
-                      {openedItem === key&&
+                      {openedItem === paymentmethod.id&&
                       <>
                       <div className="deposit-summary"style={{backgroundColor:paymentmethod.themecolor}}>
                         <div>
                           <div>
                             <span>
-                              {paymentmethod.alias.toLowerCase() === "btc"
+                              {paymentmethod.alias.toLowerCase() == "btc"
                                 ? `Total ${profile.currency}`
                                 : "Amount"}{" "}
                               to be Withdrawn
@@ -628,7 +628,7 @@ export default class Wallet extends React.Component {
                                 <div className="sb-login-form-wrapper">
                                   <div
                                     className={`form ${
-                                      openedItem !== key
+                                      openedItem !== paymentmethod.id
                                         ? "animated fadeOut"
                                         : "fadeIn animated"
                                     }`}

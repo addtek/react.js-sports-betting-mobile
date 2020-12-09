@@ -41,7 +41,7 @@ export default class AccVerifyModal extends React.Component{
     createAccount(data){
       this.props.dispatch(allActionDucer(MODAL,{attemptingSignup:true,signupHasError:false,signupErrorMSG:'',resetHasError:false,resetErrorMSG:'',smsHasError:false,smsErrorMSG:''}))
       const pass = data.password,email = data.email,$time = moment().format('YYYY-MM-DD H:mm:ss'),
-      $hash =calcMD5(`email${email}password${pass}CPassword${data.CPassword}sms${data.sms}dialing_code${data.dialing_code}country_code${data.country_code}currency_name${data.currency_name}promo_code${data.promo_code}time${$time}${this.props.appState.$publicKey}`)
+      $hash =calcMD5(`email${email}password${pass}CPassword${data.CPassword}sms${data.sms}dialing_code${data.dialing_code}time${$time}${this.props.appState.$publicKey}`)
       $api.createAccount({...data,time:$time,hash:$hash},this.onAccountCreated.bind(this))
     }
     sendSMS(mobile,dialing_code, success){

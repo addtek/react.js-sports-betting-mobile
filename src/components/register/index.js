@@ -352,11 +352,10 @@ export default class RegisterFrom extends React.Component {
         }
     }
     verifyPhone() {
-        const { phoneNumber, password, terms, firstname,CPassword, lastname, email,promo_code, country_code, selected_currency,selected_question,
-            question_answer,recovery_pin,gender,dialing_code} = this.state
-        if ((phoneNumber !== '' && validatePhone(phoneNumber)) && (email !== '' && validateEmail(email)) && (lastname !== '' && validateFullname(lastname)) && (firstname !== '' && validateFullname(firstname)) && (password !== '' && validatePassword(password))&& (CPassword!==''&&password===CPassword)&& selected_currency !==''&& selected_question!==''&&question_answer!==''&&country_code !==''&&(recovery_pin!==''&&recovery_pin.length==4 )&& gender!==""&&terms) {
+        const { phoneNumber, password, terms, firstname,CPassword, lastname, email,dialing_code} = this.state
+        if ((phoneNumber !== '' && validatePhone(phoneNumber)) && (email !== '' && validateEmail(email)) && (lastname !== '' && validateFullname(lastname)) && (firstname !== '' && validateFullname(firstname)) && (password !== '' && validatePassword(password))&& (CPassword!==''&&password===CPassword)&&terms) {
             this.setState({ canResend: false, attemptingSignup: true })
-            $api.checkExistance({mobilenumber: phoneNumber.substr(dialing_code.length), password: password, lastName: lastname, firstName: firstname, email: email, source: 42,gender:gender,recovery_pin: recovery_pin,promoCode:promo_code,securityQuestionAnswer:question_answer,securityQuestion:selected_question,country_code:JSON.parse(country_code).code,country:JSON.parse(country_code).name,currency_name:selected_currency,dialing_code:dialing_code})
+            $api.checkExistance({mobilenumber: phoneNumber.substr(dialing_code.length), password: password, lastName: lastname, firstName: firstname, email: email, source: 42,dialing_code:dialing_code})
                 .then(({ data }) => {
                     if (data.status === 200) {
                         this.attemptSignup()
@@ -378,20 +377,20 @@ export default class RegisterFrom extends React.Component {
                 dirty.emailEmpty = true
             if (password === '' || !validatePassword(password))
                 dirty.passwordEmpty = true
-            if (country_code === '' )
-                dirty.country_codeEmpty = true
-            if (selected_currency === '' )
-                dirty.selected_currencyEmpty = true
-            if (selected_question === '' )
-                dirty.selected_questionEmpty = true
-            if (question_answer === '' )
-                dirty.question_answerEmpty = true
+            // if (country_code === '' )
+            //     dirty.country_codeEmpty = true
+            // if (selected_currency === '' )
+            //     dirty.selected_currencyEmpty = true
+            // if (selected_question === '' )
+            //     dirty.selected_questionEmpty = true
+            // if (question_answer === '' )
+            //     dirty.question_answerEmpty = true
             if (CPassword === '' ||CPassword!==password)
                 dirty.CPasswordEmpty = true
-            if (recovery_pin === '' ||recovery_pin.length<4)
-                dirty.recovery_pinEmpty = true
-            if (gender === '')
-                dirty.genderEmpty = true
+            // if (recovery_pin === '' ||recovery_pin.length<4)
+            //     dirty.recovery_pinEmpty = true
+            // if (gender === '')
+            //     dirty.genderEmpty = true
             this.setState(dirty)
         }
     }
@@ -424,9 +423,9 @@ export default class RegisterFrom extends React.Component {
     render() {
         const { showPass, password, phoneNumber, email, username, emailEmpty, sms, lastname, firstname, formStep, countdown, canResend, terms, phoneNumberEmpty,
             lastnameEmpty, firstnameEmpty,
-            termsEmpty, dialing_code,recovery_pin,selected_currencyEmpty,selected_questionEmpty,country_codeEmpty,
+            termsEmpty,
             passwordEmpty, accountExist,gender,CPassword,CPasswordEmpty,recovery_pinEmpty,question_answerEmpty,genderEmpty,
-            accExistMSG, country_code, selected_currency, selected_question,question_answer, promo_code } = this.state, { attemptingSignup, sendingSMS, signupHasError, signupErrorMSG, smsErrorMSG, smsHasError, created } = this.props
+            accExistMSG} = this.state, { attemptingSignup, signupHasError, signupErrorMSG, smsErrorMSG, smsHasError, created } = this.props
         return (
             <div>
             <div className="sb-login-form-container sign-up">
@@ -447,7 +446,7 @@ export default class RegisterFrom extends React.Component {
                                         created ?
                                             <div className={` ${formStep !== 2 ? 'animated fadeOut' : 'animated fadeIn'}`} di="second-form">
                                                 <p className="recaptcha-version-3" style={{ fontSize: '20px' }}>
-                                                    Thank You for joining Macau Gambling Market, Your Account was created successfully!
+                                                    Thank You for joining Corisbet, Your Account was created successfully!
                                         </p>
                                                 {/* <span>Pleae check your Email and verify your account.</span> */}
                                                 <span style={{ fontSize: '20px' }}>Bet more, Win Big!!!</span>
@@ -494,7 +493,7 @@ export default class RegisterFrom extends React.Component {
                                                         </div>
                                                     </div>
                                                     </div>
-                                                    <div className="ember-view col-sm-12"><div className="form-group ">
+                                                    {/* <div className="ember-view col-sm-12"><div className="form-group ">
                                                         <div className="form-element empty">
                                                             <div className="input-wrapper ">
                                                             <div className="field-icons-container ">
@@ -514,7 +513,7 @@ export default class RegisterFrom extends React.Component {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    </div>
+                                                    </div> */}
                                                     <div className=" ember-view col-sm-12"><div className="form-group required">
                                                         <div className="form-element empty">
                                                             <div className="input-wrapper ">
@@ -560,7 +559,7 @@ export default class RegisterFrom extends React.Component {
                                                     </div>
                                                     </div>
 
-                                                    <div className=" ember-view col-sm-12"><div className="form-group required">
+                                                    {/* <div className=" ember-view col-sm-12"><div className="form-group required">
                                                         <div className="form-element empty">
                                                             <div className="input-wrapper ">
                                                                 <div className="field-icons-container ">
@@ -578,13 +577,13 @@ export default class RegisterFrom extends React.Component {
                                                                         this.countries.map((country, i) => <option key={i} value={JSON.stringify(country)}>{country.name}</option>)
                                                                     }
                                                                 </select>
-                                                                {/* <span className={`placeholder ${username === '' && 'placeholder-inactive'}`}>Country</span> */}
+                                                                <span className={`placeholder ${username === '' && 'placeholder-inactive'}`}>Country</span>
 
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                                    <div className="ember-view col-sm-12"><div className="form-group required">
+                                                    </div> */}
+                                                    {/* <div className="ember-view col-sm-12"><div className="form-group required">
                                                         <div className="form-element empty">
                                                             <div className="input-wrapper ">
                                                                 <div className="field-icons-container ">
@@ -603,13 +602,13 @@ export default class RegisterFrom extends React.Component {
                                                                         this.currencies.map((currency, i) => <option key={i} value={currency.value}>{currency.name}</option>)
                                                                     }
                                                                 </select>
-                                                                {/* <span className={`placeholder ${username === '' && 'placeholder-inactive'}`}>Security Question</span> */}
+                                                                <span className={`placeholder ${username === '' && 'placeholder-inactive'}`}>Security Question</span>
 
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                                    <div className="ember-view col-sm-12"><div className="form-group required">
+                                                    </div> */}
+                                                    {/* <div className="ember-view col-sm-12"><div className="form-group required">
                                                         <div className="form-element empty">
                                                             <div className="input-wrapper ">
                                                                 <div className="field-icons-container ">
@@ -628,13 +627,13 @@ export default class RegisterFrom extends React.Component {
                                                                         this.security_questions.map((question, i) => <option key={i} value={question.value}>{question.name}</option>)
                                                                     }
                                                                 </select>
-                                                                {/* <span className={`placeholder ${username === '' && 'placeholder-inactive'}`}>Security Question</span> */}
+                                                                <span className={`placeholder ${username === '' && 'placeholder-inactive'}`}>Security Question</span>
 
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                
+                                                    </div> */}
+{/*                                 
                                                     <div className="ember-view col-sm-12"><div className="form-group required">
                                                         <div className="form-element empty">
                                                             <div className="input-wrapper ">
@@ -654,7 +653,7 @@ export default class RegisterFrom extends React.Component {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    </div>
+                                                    </div> */}
                                                     <div className=" ember-view col-sm-12">
                                                         <div className="form-group required">
                                                             <div className="form-element empty">
@@ -682,7 +681,7 @@ export default class RegisterFrom extends React.Component {
                                                             <div className="form-element empty">
                                                                 <div className="input-wrapper  show-password-switcher">
                                                                     <div className="field-icons-container ">
-                                                                        {CPassword !== ''||CPasswordEmpty && <div className="password-visibility-block" onClick={this.toggleShow} >
+                                                                        {(CPassword !== ''|| CPasswordEmpty) && <div className="password-visibility-block" onClick={this.toggleShow} >
                                                                             <span className={`password-visibility icon ${showPass ? 'icon-sb-hide' : 'icon-sb-show'}`} ></span>
                                                                         </div>}
                                                                         {((CPassword !== '' && !validatePassword(CPassword)) || CPasswordEmpty) && <React.Fragment>
@@ -699,7 +698,7 @@ export default class RegisterFrom extends React.Component {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className="ember-view col-sm-12">
+                                                    {/* <div className="ember-view col-sm-12">
                                                         <div className="form-group required">
                                                             <div className="form-element empty">
                                                                 <div className="input-wrapper  show-password-switcher">
@@ -717,8 +716,8 @@ export default class RegisterFrom extends React.Component {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div className="ember-view col-sm-12">
+                                                    </div> */}
+                                                    {/* <div className="ember-view col-sm-12">
                                                         <div className="form-group required">
                                                             <div className="form-element empty">
                                                                 <div className="input-wrapper  show-password-switcher">
@@ -736,7 +735,7 @@ export default class RegisterFrom extends React.Component {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> */}
                                                     {/* <div className=" ember-view col-sm-12">
                                             <div className="form-group ">
                                             <div className="form-element empty">
@@ -835,7 +834,7 @@ export default class RegisterFrom extends React.Component {
                                     <div className="footer">
                                         <span>Already have an account? </span>
                                         <span className="as-link step-change" data-step="sign-in" data-side="left">
-                                            <a onClick={() => { this.props.changeForm({ formType: 'login' }) }}> Sign In</a>
+                                            <a href=" " onClick={() => { this.props.changeForm({ formType: 'login' }) }}> Sign In</a>
                                         </span>
                                     </div>
                                 </div>
