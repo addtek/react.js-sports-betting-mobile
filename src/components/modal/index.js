@@ -190,14 +190,14 @@ export default class AccModal extends React.Component{
                     </div>
 
                       <div className="account-popup-body-container">
-                      <div className="account-popup-message" style={{fontWeight:"900", fontSize:"16px"}}>{depositWithdraw?.type!==2 ?'Thank you for making a deposit' : ''} 
+                      <div className="account-popup-message" style={{fontWeight:"900", fontSize:"16px"}}>{depositWithdraw?.type!==1 ?'Thank you for making a deposit' : ''} 
                       </div>
-                      <div className="account-popup-message">{depositWithdraw?.type!==2 ?`Please click Okay button or copy the URL to transfer the requested funds: ` : ''} 
+                      <div className="account-popup-message">{depositWithdraw?.type!==1 ?`Please click Okay button or copy the URL to transfer the requested funds: ` : ''} 
                       </div>
-                      {depositWithdraw?.type!==2 &&<div className="account-popup-message">
+                      {depositWithdraw?.type!==1 &&<div className="account-popup-message">
                         <div style={{backgroundColor:"#E7E7E7",borderRadius:"5px",height:"25px",margin:"5px",padding:"4px",textAlign:"center",fontSize:"15px"}}>{depositWithdraw.url } <span className="icon-copy" style={{height:"20px",margin:"5px",cursor:"pointer",color:"#08b981"}} onClick={ ()=>this.copyToClipboard(depositWithdraw.url)}></span></div> 
                       </div>}
-                      {depositWithdraw?.type!==2 &&<div className="account-popup-message">Validation takes about 5-15 minutes depending of transaction volume. We advice you to only contact Live chat if your doposit does not reflect 15 minutes after after fund transfer
+                      {depositWithdraw?.type!==1 &&<div className="account-popup-message">Validation takes about 5-15 minutes depending of transaction volume. We advice you to only contact Live chat if your doposit does not reflect 15 minutes after after fund transfer
                       </div>}
                           <div className="account-popup-buttons">
                                   {/* <a className="btn btn1" onClick={this.confirmClaim.bind(this)}>Yes {claimData.type ===2 &&' Withdraw'}</a> */}
