@@ -413,18 +413,18 @@ export default class RegisterFrom extends React.Component {
     }
     attemptSignup() {
         // clearInterval(this.countdownTimer)
-        const { phoneNumber, CPassword, password, sms, lastname, firstname, email, dialing_code, country_code,selected_currency,selected_question,question_answer,recovery_pin,promo_code,gender } = this.state
-        this.props.register({sms:sms, mobilenumber: phoneNumber.substr(dialing_code.length),dialing_code:dialing_code, password: password,CPassword:CPassword, lastName: lastname, firstName: firstname, email: email, source: 42,gender:gender,recovery_pin: recovery_pin,promo_code:promo_code,securityQuestionAnswer:question_answer,securityQuestion:selected_question,country_code:JSON.parse(country_code).code,country:JSON.parse(country_code).name,currency_name:selected_currency})
+        const { phoneNumber, CPassword, password, sms, lastname, firstname, email, dialing_code} = this.state
+        this.props.register({sms:sms, mobilenumber: phoneNumber.substr(dialing_code.length),dialing_code:dialing_code, password: password,CPassword:CPassword, lastName: lastname, firstName: firstname, email: email, source: 42})
     }
     close() {
         clearInterval(this.countdownTimer)
         this.props.onClose()
     }
     render() {
-        const { showPass, password, phoneNumber, email, username, emailEmpty, sms, lastname, firstname, formStep, countdown, canResend, terms, phoneNumberEmpty,
+        const { showPass, password, phoneNumber, email, emailEmpty, sms, lastname, firstname, formStep, countdown, canResend, terms, phoneNumberEmpty,
             lastnameEmpty, firstnameEmpty,
             termsEmpty,
-            passwordEmpty, accountExist,gender,CPassword,CPasswordEmpty,recovery_pinEmpty,question_answerEmpty,genderEmpty,
+            passwordEmpty, accountExist,CPassword,CPasswordEmpty,
             accExistMSG} = this.state, { attemptingSignup, signupHasError, signupErrorMSG, smsErrorMSG, smsHasError, created } = this.props
         return (
             <div>
