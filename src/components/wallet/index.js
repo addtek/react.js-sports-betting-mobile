@@ -44,7 +44,7 @@ export default class Wallet extends React.Component {
         this.setState({ loadingMethods: true });
         $api.paymentOptions(
           ({ data }) => {
-            if (data.status == 200) {
+            if (data.status === 200) {
               this.setState({ paymentOptions: data.data, loadingMethods: false });
             } else {
               this.setState({ loadingMethods: false });
@@ -57,7 +57,7 @@ export default class Wallet extends React.Component {
 
         $api.withdrawalOptions(
           ({ data }) => {
-            if (data.status == 200) {
+            if (data.status === 200) {
               this.setState({ withdrawalOptions: data.data, loadingMethods: false });
             } else {
               this.setState({ loadingMethods: false });
@@ -212,10 +212,7 @@ export default class Wallet extends React.Component {
         amount,
         password,
         showPass,
-        phoneNumber,
-        source,
         attemptingWithdrawal,
-        attemptingForceWithdrawal,
         attemptingDeposit,
         paymentOptions,
         withdrawalOptions,
@@ -224,7 +221,7 @@ export default class Wallet extends React.Component {
         externalAcc
       } = this.state,
       profile = this.props.profile,
-      { formType, onClose, config,depositSuccessDialog,backToMenuModal } = this.props;
+      { formType,backToMenuModal } = this.props;
         return (
             <div className="section-content col-sm-12" style={{backgroundColor:"#fff"}}>
                 <div className="filter">
@@ -234,11 +231,11 @@ export default class Wallet extends React.Component {
                         
                     </div>
                     <div className="sorter">
-                        <div className={formType == 1 ? 'active' : ''} onClick={() => { this.changeForm(1) }}> <span>Deposit </span>
+                        <div className={formType === 1 ? 'active' : ''} onClick={() => { this.changeForm(1) }}> <span>Deposit </span>
                         </div>
-                        <div className={formType == 2 ? 'active' : ''} onClick={() => { this.changeForm(2) }}><span>Withdrawal</span>
+                        <div className={formType === 2 ? 'active' : ''} onClick={() => { this.changeForm(2) }}><span>Withdrawal</span>
                         </div>
-                        <div className={formType == 3 ? 'active' : ''} onClick={() => { this.changeForm(3) }}><span>Balance History</span>
+                        <div className={formType === 3 ? 'active' : ''} onClick={() => { this.changeForm(3) }}><span>Balance History</span>
                         </div>
                     </div>
                 </div>
@@ -259,7 +256,7 @@ export default class Wallet extends React.Component {
                   <div className="deposit-type ">
                     <div className="header" onClick={()=>this.setState((prev)=>({openedItem:prev.openedItem===index?null:index}))}>
                       <div className="type-logo col-sm-2">
-                        <img src={paymentmethod.icon} />
+                        <img  alt="" src={paymentmethod.icon} />
                       </div>
                       <div className="type-logo col-sm-3">
 
